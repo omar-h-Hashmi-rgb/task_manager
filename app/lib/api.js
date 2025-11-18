@@ -1,7 +1,5 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
-
 export const fetcher = async (endpoint) => {
-  const response = await fetch(`${API_URL}${endpoint}`, {
+  const response = await fetch(endpoint, {
     headers: {
       'Content-Type': 'application/json',
     },
@@ -15,7 +13,7 @@ export const fetcher = async (endpoint) => {
 };
 
 export const createTask = async (taskData) => {
-  const response = await fetch(`${API_URL}/api/tasks`, {
+  const response = await fetch('/api/tasks', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -31,7 +29,7 @@ export const createTask = async (taskData) => {
 };
 
 export const updateTask = async (id, updateData) => {
-  const response = await fetch(`${API_URL}/api/tasks/${id}`, {
+  const response = await fetch(`/api/tasks/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -47,7 +45,7 @@ export const updateTask = async (id, updateData) => {
 };
 
 export const deleteTask = async (id) => {
-  const response = await fetch(`${API_URL}/api/tasks/${id}`, {
+  const response = await fetch(`/api/tasks/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',

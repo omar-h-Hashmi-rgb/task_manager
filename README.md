@@ -264,18 +264,6 @@ NEXT_PUBLIC_API_URL=https://your-backend-api-url.com
 - Safari (latest)
 - Edge (latest)
 
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Ensure responsive design
-5. Test across different devices
-6. Submit a pull request
-
-## License
-
-MIT License - see LICENSE file for details.
 
 ## Author
 

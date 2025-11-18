@@ -9,7 +9,7 @@ export default function TaskCard({ task, onTaskUpdated }) {
   const handleToggleStatus = async () => {
     setIsLoading(true);
     try {
-      const newStatus = task.status === 'pending' ? 'completed' : 'pending';
+      const newStatus = task.status === 'PENDING' ? 'COMPLETED' : 'PENDING';
       await updateTask(task.id, { status: newStatus });
       onTaskUpdated();
     } catch (error) {
@@ -48,7 +48,7 @@ export default function TaskCard({ task, onTaskUpdated }) {
         <div className="flex-1">
           <div className="flex items-center mb-2">
             <h3 className={`font-medium ${
-              task.status === 'completed' 
+              task.status === 'COMPLETED' 
                 ? 'text-gray-500 line-through' 
                 : 'text-gray-800'
             }`}>
@@ -56,7 +56,7 @@ export default function TaskCard({ task, onTaskUpdated }) {
             </h3>
             
             <span className={`ml-2 px-2 py-1 text-xs font-medium rounded-full ${
-              task.status === 'completed'
+              task.status === 'COMPLETED'
                 ? 'bg-green-100 text-green-800'
                 : 'bg-orange-100 text-orange-800'
             }`}>
@@ -66,7 +66,7 @@ export default function TaskCard({ task, onTaskUpdated }) {
 
           {task.description && (
             <p className={`text-sm mb-2 ${
-              task.status === 'completed' 
+              task.status === 'COMPLETED' 
                 ? 'text-gray-400' 
                 : 'text-gray-600'
             }`}>
@@ -84,13 +84,13 @@ export default function TaskCard({ task, onTaskUpdated }) {
             onClick={handleToggleStatus}
             disabled={isLoading}
             className={`btn text-sm ${
-              task.status === 'completed' 
+              task.status === 'COMPLETED' 
                 ? 'btn-secondary' 
                 : 'btn-success'
             }`}
-            title={task.status === 'completed' ? 'Mark as pending' : 'Mark as completed'}
+            title={task.status === 'COMPLETED' ? 'Mark as pending' : 'Mark as completed'}
           >
-            {task.status === 'completed' ? (
+            {task.status === 'COMPLETED' ? (
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
               </svg>

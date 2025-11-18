@@ -8,7 +8,7 @@ export default function TaskForm({ onTaskCreated }) {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
-    status: 'pending'
+    status: 'PENDING'
   });
 
   const handleSubmit = async (e) => {
@@ -18,7 +18,7 @@ export default function TaskForm({ onTaskCreated }) {
     setIsLoading(true);
     try {
       await createTask(formData);
-      setFormData({ title: '', description: '', status: 'pending' });
+      setFormData({ title: '', description: '', status: 'PENDING' });
       onTaskCreated();
     } catch (error) {
       console.error('Failed to create task:', error);
@@ -71,8 +71,8 @@ export default function TaskForm({ onTaskCreated }) {
             className="input"
             disabled={isLoading}
           >
-            <option value="pending">Pending</option>
-            <option value="completed">Completed</option>
+            <option value="PENDING">Pending</option>
+            <option value="COMPLETED">Completed</option>
           </select>
         </div>
 

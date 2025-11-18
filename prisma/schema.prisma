@@ -3,24 +3,17 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
 model Task {
   id          String   @id @default(cuid())
-  title       String   @db.VarChar(255)
-  description String?  @db.Text
-  status      Status   @default(PENDING)
+  title       String
+  description String?
+  status      String   @default("PENDING")
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
   @@map("tasks")
-}
-
-enum Status {
-  PENDING
-  COMPLETED
-
-  @@map("task_status")
 }

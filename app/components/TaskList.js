@@ -16,6 +16,8 @@ export default function TaskList({ filter, refreshKey, onTaskUpdated }) {
 
   const filteredTasks = tasks.data.filter(task => {
     if (filter === 'all') return true;
+    if (filter === 'pending') return task.status === 'PENDING';
+    if (filter === 'completed') return task.status === 'COMPLETED';
     return task.status === filter;
   });
 

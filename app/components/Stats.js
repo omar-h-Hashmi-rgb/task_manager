@@ -13,7 +13,7 @@ export default function Stats({ refreshKey }) {
   if (!tasks) return <StatsLoading />;
 
   const totalTasks = tasks.data.length;
-  const completedTasks = tasks.data.filter(task => task.status === 'completed').length;
+  const completedTasks = tasks.data.filter(task => task.status === 'COMPLETED').length;
   const pendingTasks = totalTasks - completedTasks;
   const completionRate = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
 

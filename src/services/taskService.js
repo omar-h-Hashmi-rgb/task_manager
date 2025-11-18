@@ -24,7 +24,7 @@ class TaskService {
 
   // Create new task
   async createTask(taskData) {
-    const { title, description, status = 'pending' } = taskData;
+    const { title, description, status = 'PENDING' } = taskData;
     
     return await prisma.task.create({
       data: {

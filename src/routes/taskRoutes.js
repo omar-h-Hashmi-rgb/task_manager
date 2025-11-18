@@ -19,8 +19,8 @@ const createTaskValidation = [
     .withMessage('Description must not exceed 1000 characters'),
   body('status')
     .optional()
-    .isIn(['pending', 'completed'])
-    .withMessage('Status must be either pending or completed')
+    .isIn(['PENDING', 'COMPLETED'])
+    .withMessage('Status must be either PENDING or COMPLETED')
 ];
 
 const updateTaskValidation = [
@@ -38,8 +38,8 @@ const updateTaskValidation = [
     .withMessage('Description must not exceed 1000 characters'),
   body('status')
     .optional()
-    .isIn(['pending', 'completed'])
-    .withMessage('Status must be either pending or completed')
+    .isIn(['PENDING', 'COMPLETED'])
+    .withMessage('Status must be either PENDING or COMPLETED')
 ];
 
 // Routes

@@ -13,7 +13,7 @@ export default function TaskCard({ task, onTaskUpdated }) {
       await updateTask(task.id, { status: newStatus });
       onTaskUpdated();
     } catch (error) {
-      console.error('Failed to update task:', error);
+      // Task update failed - silently handle error
     } finally {
       setIsLoading(false);
     }
@@ -27,7 +27,7 @@ export default function TaskCard({ task, onTaskUpdated }) {
       await deleteTask(task.id);
       onTaskUpdated();
     } catch (error) {
-      console.error('Failed to delete task:', error);
+      // Task deletion failed - silently handle error
       setIsLoading(false);
     }
   };

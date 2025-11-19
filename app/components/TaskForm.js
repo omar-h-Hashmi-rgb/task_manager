@@ -21,7 +21,7 @@ export default function TaskForm({ onTaskCreated }) {
       setFormData({ title: '', description: '', status: 'PENDING' });
       onTaskCreated();
     } catch (error) {
-      console.error('Failed to create task:', error);
+      // Task creation failed - silently handle error
     } finally {
       setIsLoading(false);
     }

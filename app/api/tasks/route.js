@@ -23,7 +23,6 @@ export async function GET(request) {
       count: tasks.length
     });
   } catch (error) {
-    console.error('Error fetching tasks:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to fetch tasks' },
       { status: 500 }
@@ -77,7 +76,6 @@ export async function POST(request) {
       data: task
     }, { status: 201 });
   } catch (error) {
-    console.error('Error creating task:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to create task' },
       { status: 500 }

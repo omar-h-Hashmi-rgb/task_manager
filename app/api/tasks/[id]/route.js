@@ -1,7 +1,10 @@
 import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient();
+// Create a global Prisma instance to prevent multiple connections
+const globalForPrisma = globalThis;
+const prisma = globalForPrisma.prisma || new PrismaClient();
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 
 // GET /api/tasks/[id] - Get task by ID
 export async function GET(request, { params }) {

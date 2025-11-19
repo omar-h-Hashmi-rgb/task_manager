@@ -13,7 +13,8 @@ export default function TaskCard({ task, onTaskUpdated }) {
       await updateTask(task.id, { status: newStatus });
       onTaskUpdated();
     } catch (error) {
-      // Task update failed - silently handle error
+      // Task update failed - still try to refresh the list
+      onTaskUpdated();
     } finally {
       setIsLoading(false);
     }
@@ -27,7 +28,9 @@ export default function TaskCard({ task, onTaskUpdated }) {
       await deleteTask(task.id);
       onTaskUpdated();
     } catch (error) {
-      // Task deletion failed - silently handle error
+      // Task deletion failed - still try to refresh the list
+      onTaskUpdated();
+    } finally {
       setIsLoading(false);
     }
   };
